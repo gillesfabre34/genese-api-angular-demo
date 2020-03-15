@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Genese, GeneseService } from 'genese-angular';
-import { Book } from '../models/book.model';
-import { ArrayOfArraysOfStrings } from '../models/arrayOfArraysOfStrings.model';
+import { GeneseRequestService } from '../../../../../genese/genese-api/services/genese-request.service';
 
 
 @Component({
@@ -11,23 +9,18 @@ import { ArrayOfArraysOfStrings } from '../models/arrayOfArraysOfStrings.model';
 })
 export class GetOneComponent implements OnInit {
 
-    public booksGenese: Genese<Book>;
-    public arrayOfArraysOfStringsGenese: Genese<ArrayOfArraysOfStrings>;
-    public model = {
-        genese: {
-            path: '/books'
-        }
-    };
+
 
     // --------------------------------------------------
     //                     CONSTRUCTOR
     // --------------------------------------------------
 
     constructor(
-        private geneseService: GeneseService,
+        // private geneseService: GeneseService,
+        private geneseRequestService: GeneseRequestService
     ) {
-        this.booksGenese = geneseService.getGeneseInstance(Book);
-        this.arrayOfArraysOfStringsGenese = geneseService.getGeneseInstance(ArrayOfArraysOfStrings);
+        // this.booksGenese = geneseService.getGeneseInstance(Book);
+        // this.arrayOfArraysOfStringsGenese = geneseService.getGeneseInstance(ArrayOfArraysOfStrings);
     }
 
     ngOnInit(): void {
@@ -39,8 +32,11 @@ export class GetOneComponent implements OnInit {
      * @param id
      */
     getOne(id: string): void {
-        this.booksGenese.getOne(id).subscribe((book: Book) => {
+        this.geneseRequestService.getAllBooks().subscribe((book: any[]) => {
             console.log('%c Get one book ', 'font-weight: bold; color: green;', book);
         });
+        // this.booksGenese.getOne(id).subscribe((book: Book) => {
+        //     console.log('%c Get one book ', 'font-weight: bold; color: green;', book);
+        // });
     }
 }
