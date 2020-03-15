@@ -1,10 +1,8 @@
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PaginatorComponent extends MatPaginatorIntl {
-    translate: TranslateService;
     itemsPerPageLabel = '';
     nextPageLabel = '';
     previousPageLabel = '';
@@ -30,31 +28,4 @@ export class PaginatorComponent extends MatPaginatorIntl {
         });
     };
 
-
-    /**
-     * Get the translation for the paginator
-     * @param translate
-     */
-    getPaginatorIntl(translate: TranslateService) {
-        this.translate = translate;
-        this.translateLabels();
-
-        this.translate.onLangChange.subscribe(() => {
-            this.translateLabels();
-        });
-    }
-
-
-    /**
-     * Translate the labels
-     */
-    translateLabels() {
-        this.itemsPerPageLabel = this.translate.instant('PAGINATOR.ITEMS_PER_PAGE_LABEL');
-        this.nextPageLabel = this.translate.instant('PAGINATOR.NEXT_PAGE_LABEL');
-        this.previousPageLabel = this.translate.instant('PAGINATOR.PREVIOUS_PAGE_LABEL');
-        this.firstPageLabel = this.translate.instant('PAGINATOR.FIRST_PAGE_LABEL');
-        this.lastPageLabel = this.translate.instant('PAGINATOR.LAST_PAGE_LABEL');
-        this.getRangeLabel = this.getRangeLabel.bind(this);
-        this.changes.next();
-    }
 }

@@ -15,7 +15,7 @@ import { GeneseApiModule } from '../../genese/genese-api/genese-api.module';
     imports: [
         BrowserModule,
         GeneseModule.forRoot(),
-        GeneseApiModule,
+        GeneseApiModule.forRoot(),
         HomeModule,
 
         AppRoutingModule
