@@ -1,29 +1,28 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GeneseEnvironmentService } from 'genese-angular';
+import { GeneseEnvironmentService, GeneseService } from 'genese-angular';
+import { Book } from '../dtos/book.dto';
+import { BooksService } from './books.service';
 
 
-
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GeneseRequestService {
+
+    getAllBooks: () => Observable<Book[]>;
 
     constructor(
         private http: HttpClient,
         private geneseEnvironmentService: GeneseEnvironmentService,
+        private geneseService: GeneseService,
+        private booksService: BooksService
     ) {
         this.init();
     }
-    public getOneBooks: () => Observable<Book>;
 
-
-
-
-    init(): void {
-
+    init() {
         this.getAllBooks = this.booksService.getAllBooks;
-        this.getOneBooks = this.booksBookIdService.getOneBooks;
     }
-
-
 }

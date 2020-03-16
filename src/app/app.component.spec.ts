@@ -23,6 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'genese'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('genese-core');
+    expect(app.title).toEqual('genese-save-core');
   });
 });

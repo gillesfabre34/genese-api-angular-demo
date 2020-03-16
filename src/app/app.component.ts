@@ -8,7 +8,7 @@ import { GeneseEnvironmentService } from 'genese-angular';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'genese-demo';
+  title = 'genese-save-demo';
 
 
   constructor(geneseEnvironmentService: GeneseEnvironmentService) {

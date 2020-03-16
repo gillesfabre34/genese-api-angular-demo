@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './demo/home/home.module';
 import { GeneseModule } from 'genese-angular';
-import { GeneseApiModule } from '../../genese/genese-api/genese-api.module';
+import { GeneseApiModule } from '../../genese-save/genese-api/genese-api.module';
 
 @NgModule({
     declarations: [

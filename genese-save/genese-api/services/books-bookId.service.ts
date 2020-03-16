@@ -5,7 +5,7 @@ import { Genese, GeneseEnvironmentService, GeneseService } from 'genese-angular'
 import { Book } from '../dtos/schemas/book.dto';
 
 @Injectable()
-export class BooksService {
+export class BooksBookIdService {
 
 
 
@@ -20,8 +20,8 @@ export class BooksService {
 
 
 
-	getAllBooks(): Observable<Book[]> {
-		return this.geneseService.getGeneseInstance(Book).getAllCustom('/books') as any;
+	getOneBooks(): Observable<Book> {
+		return this.geneseService.getGeneseInstance(Book).getOneCustom('/books/{bookId}') as any;
 	}
 
 

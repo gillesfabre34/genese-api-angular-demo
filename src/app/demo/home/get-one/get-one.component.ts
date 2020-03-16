@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneseRequestService } from '../../../../../genese/genese-api/services/genese-request.service';
+import { GeneseRequestService } from '../../../../../genese-save/genese-api/services/genese-request.service';
 
 
 @Component({
