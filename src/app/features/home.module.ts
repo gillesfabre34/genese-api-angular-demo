@@ -16,6 +16,7 @@ import { UpdateCustomComponent } from './update-custom/update-custom.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { GetArrayComponent } from './get-array/get-array.component';
+import { GeneseRequestService } from '../../../genese/genese-api/services/genese-request.service';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { GetArrayComponent } from './get-array/get-array.component';
         HomeComponent,
     ],
     providers: [
+        GeneseRequestService
     ],
     exports: [],
 })
