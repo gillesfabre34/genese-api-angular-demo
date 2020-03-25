@@ -26,6 +26,8 @@ export class GetAllComponent implements OnInit {
     ) {
     }
 
+
+
     ngOnInit(): void {
         this.getData();
     }
