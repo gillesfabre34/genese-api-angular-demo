@@ -10,6 +10,8 @@ import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 })
 export class GetAllComponent implements OnInit {
 
+    public data: any[] = [];
+
 
     constructor(
         private geneseService: GeneseRequestService,
@@ -26,7 +28,7 @@ export class GetAllComponent implements OnInit {
         this.geneseService.getBooks()
             .subscribe((response: Book[]) => {
                 console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
-                // this.data = response;
+                this.data = response;
             });
     }
 }

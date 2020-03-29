@@ -34,7 +34,18 @@
                     "description": "Post Book DTO",
                     "content": {
                         "application/json": {
-
+                            "schema": {
+                                "$ref": "#/components/schemas/BookPost"
+                            },
+                            "examples": {
+                                "New book": {
+                                    "value": {
+                                        "title": "some text",
+                                        "description": "some text",
+                                        "year": "some text"
+                                    }
+                                }
+                            }
                         }
                     },
                     "required": true
@@ -78,15 +89,26 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Book"
+                                "$ref": "#/components/schemas/BookPut"
+                            },
+                            "examples": {
+                                "Update book": {
+                                    "value": {
+                                        "title": "some text",
+                                        "description": "some text"
+                                    }
+                                }
                             }
                         }
                     },
                     "required": true
                 },
                 "responses": {
-                    "202": {
-                        "description": "Successful response."
+                    "201": {
+                        "description": "Book created"
+                    },
+                    "200": {
+                        "description": "Book updated"
                     }
                 },
                 "operationId": "updateBook",
@@ -438,6 +460,44 @@
                 "example": {
                     "firstname": "John",
                     "lastname": "Doe"
+                }
+            },
+            "BookPut": {
+                "description": "",
+                "required": [
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookPost": {
+                "description": "",
+                "required": [
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "year": {
+                        "description": "",
+                        "type": "string"
+                    }
                 }
             }
         }

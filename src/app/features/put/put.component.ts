@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponseStatus } from '../../enums/response-status';
-import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
+import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
+import { BookPut } from '../../../../genese/genese-api/datatypes/book-put.datatype';
 
 
 @Component({
     selector: 'app-post',
-    templateUrl: './delete.component.html',
-    styleUrls: ['./delete.component.scss']
+    templateUrl: './put.component.html',
+    styleUrls: ['./put.component.scss']
 })
-export class DeleteComponent implements OnInit {
+export class PutComponent implements OnInit {
 
+
+    public bookPut: BookPut = {title: 'The capital', description: 'Karl Marx economic theory'};
     public data: any[] = [];
 
 
@@ -25,15 +28,12 @@ export class DeleteComponent implements OnInit {
     }
 
 
-
-    delete(id: string): void {
-        console.log('%c delete id ', 'font-weight: bold; color: red;', id);
-        this.geneseService.deleteBooksByBookId(id).subscribe((response: ResponseStatus) => {
-            console.log('%c Genese delete response ', 'font-weight: bold; color: red;', response);
+    put(id: string): void {
+        this.geneseService.putBooksByBookId(id, this.bookPut).subscribe((response: ResponseStatus) => {
+            console.log('%c Genese put response ', 'font-weight: bold; color: fuchsia;', response);
             this.getData();
         });
     }
-
 
 
     getData(): void {
@@ -43,4 +43,6 @@ export class DeleteComponent implements OnInit {
                 this.data = response;
             });
     }
+
+
 }

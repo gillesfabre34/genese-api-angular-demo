@@ -1,6 +1,6 @@
 <div class="method-container">
-    <p class="title">create(newObject: T, options?: RequestOptions): Observable< T | any ></p>
-    <p>create() method is used to add a T object in database with a POST http request</p>
+    <p class="title">post(newObject: T, options?: RequestOptions): Observable< T | any ></p>
+    <p>post() method is used to add a T object in database with a POST http request</p>
     <p>If the endpoint respects the Genese standards, it should return the new object. In this case, the create() method will return this object formatted with the T type. In the other case, the create() method will simply return the request response.</p>
     <p>create() method needs that your app respects the Genese standards :</p>
     <p>* The endpoint must wait a POST method.</p>
@@ -11,20 +11,25 @@
     <div class="form-create">
         <form (ngSubmit)="create()" #formCreate="ngForm">
             <div class="form-group">
-                <label for="title">Firstname</label>
-                <input type="text" class="form-control" id="title" placeholder="title" [(ngModel)]="authorPost.firstname" name="title" required #title="ngModel">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="title" [(ngModel)]="bookPost.title" name="title" required #title="ngModel">
                 <div [hidden]="title.valid || title.pristine"
                      class="alert alert-danger">
-                    Firstname is required
+                    Title is required
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="author">Lastname</label>
-                <input type="text" class="form-control" id="author" placeholder="Name" [(ngModel)]="authorPost.lastname" name="author">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="Description" [(ngModel)]="bookPost.description" name="description">
             </div>
 
-            <button type="submit" class="btn btn-success" [disabled]="!formCreate.form.valid">Create new author</button>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year" placeholder="Year" [(ngModel)]="bookPost.year" name="year">
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!formCreate.form.valid">Create new book</button>
         </form>
     </div>
 </div>

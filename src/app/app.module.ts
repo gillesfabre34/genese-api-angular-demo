@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './features/home.module';
 import { GeneseModule } from 'genese-angular';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [

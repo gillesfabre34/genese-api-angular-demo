@@ -4,10 +4,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { CoreModule } from '../core/core.module';
 import { GetOneComponent } from './get-one/get-one.component';
 import { GetAllComponent } from './get-all/get-all.component';
-import { DataListComponent } from './data-list/data-list.component';
-import { CreateComponent } from './create/create.component';
+import { BooksListComponent } from './books-list/books-list.component';
+import { PostComponent } from './post/post.component';
 import { DeleteComponent } from './delete/delete.component';
-import { UpdateComponent } from './update/update.component';
+import { PutComponent } from './put/put.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { GeneseRequestService } from '../../../genese/genese-api/services/genese-request.service';
@@ -15,14 +15,14 @@ import { GeneseRequestService } from '../../../genese/genese-api/services/genese
 
 @NgModule({
     declarations: [
-        CreateComponent,
+        PostComponent,
         DeleteComponent,
-        DataListComponent,
+        BooksListComponent,
         WelcomeComponent,
         GetAllComponent,
         GetOneComponent,
         HomeComponent,
-        UpdateComponent,
+        PutComponent,
     ],
     imports: [
         CoreModule,
