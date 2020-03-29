@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../models/book.model';
-import { Genese, GeneseService } from 'genese-angular';
 import { ResponseStatus } from '../../enums/response-status';
+import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
+import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
 @Component({
@@ -11,48 +11,36 @@ import { ResponseStatus } from '../../enums/response-status';
 })
 export class DeleteComponent implements OnInit {
 
-    // --------------------------------------------------
-    //                     PROPERTIES
-    // --------------------------------------------------
-
-    public booksGenese: Genese<Book>;
     public data: any[] = [];
-    public model = {
-        genese: {
-            path: '/books'
-        }
-    };
 
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
 
     constructor(
-        private geneseService: GeneseService,
-    ) {
-        this.booksGenese = geneseService.getGeneseInstance(Book);
-    }
+        private geneseService: GeneseRequestService,
+    ) {}
+
+
 
     ngOnInit(): void {
         this.getData();
     }
 
 
+
     delete(id: string): void {
-        this.booksGenese.delete(id).subscribe((response: ResponseStatus) => {
-            console.log('%c Genese delete response ', 'font-weight: bold; color: red;', response);
+        console.log('%c delete id ', 'font-weight: bold; color: red;', id);
+        this.geneseService.deleteBooksByBookId(id).subscribe((response: ResponseStatus) => {
+            console.log('%c Genese deleteCustom response ', 'font-weight: bold; color: red;', response);
             this.getData();
         });
     }
 
 
+
     getData(): void {
-        this.booksGenese
-            .getAll()
+        this.geneseService.getBooks()
             .subscribe((response: Book[]) => {
+                console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
                 this.data = response;
             });
     }
-
-
 }

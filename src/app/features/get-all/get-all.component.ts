@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../models/book.model';
-import { Genese, GeneseService } from 'genese-angular';
 import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
+import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
 @Component({
@@ -11,20 +10,10 @@ import { GeneseRequestService } from '../../../../genese/genese-api/services/gen
 })
 export class GetAllComponent implements OnInit {
 
-    // --------------------------------------------------
-    //                     PROPERTIES
-    // --------------------------------------------------
-
-
-
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
 
     constructor(
         private geneseService: GeneseRequestService,
-    ) {
-    }
+    ) {}
 
 
 
@@ -35,7 +24,7 @@ export class GetAllComponent implements OnInit {
 
     getData(): void {
         this.geneseService.getBooks()
-            .subscribe((response: any) => {
+            .subscribe((response: Book[]) => {
                 console.log('%c getAll response ', 'font-weight: bold; color: black;', response);
                 // this.data = response;
             });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Genese, GeneseService } from 'genese-angular';
-import { Book } from '../models/book.model';
+import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
 @Component({

@@ -11,14 +11,9 @@ import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 export class GetOneComponent implements OnInit {
 
 
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
-
     constructor(
         private geneseService: GeneseRequestService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.getOne('1');

@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Genese, GeneseService, GetAllResponse } from 'genese-angular';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { Book } from '../models/book.model';
 import { tap } from 'rxjs/operators';
 import { homeEnv } from '../homeEnv';
+import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
 @Component({

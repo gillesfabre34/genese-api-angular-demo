@@ -1,4 +1,3 @@
-import { Book } from '../models/book.model';
 
 export const BOOKS: any[] = [
     {
