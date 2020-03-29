@@ -3,32 +3,32 @@
 
     <table mat-table [dataSource]="dataSource" class="table-get-all">
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef translate="HOME.ID"
+            <th mat-header-cell *matHeaderCellDef translate="id"
                 class="table-header"></th>
             <td mat-cell *matCellDef="let book" class="table-row">{{book.id}}</td>
         </ng-container>
 
         <ng-container matColumnDef="author">
-            <th mat-header-cell *matHeaderCellDef translate="HOME.AUTHOR"
+            <th mat-header-cell *matHeaderCellDef translate="author"
                 class="table-header"></th>
             <td mat-cell *matCellDef="let book"
-                class="table-row">{{book.author}}</td>
+                class="table-row">{{book.author?.lastname}}</td>
         </ng-container>
 
         <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef translate="HOME.TITLE"
+            <th mat-header-cell *matHeaderCellDef translate="title"
                 class="table-header"></th>
             <td mat-cell *matCellDef="let book" class="table-row">{{book.title}}</td>
         </ng-container>
 
         <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef translate="HOME.DESCRIPTION"
+            <th mat-header-cell *matHeaderCellDef translate="description"
                 class="table-header"></th>
             <td mat-cell *matCellDef="let book" class="table-row">{{book.description}}</td>
         </ng-container>
 
         <ng-container matColumnDef="actions" class="action-column">
-            <th mat-header-cell *matHeaderCellDef translate="HOME.ACTIONS"
+            <th mat-header-cell *matHeaderCellDef translate="actions"
                 class="table-header action-header align-center"></th>
             <td mat-cell *matCellDef="let book" class="table-row action-row">
                 <div class="divIcons">
