@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Book } from '../models/book.model';
-import { Genese, GeneseService } from 'genese-angular';
+import { Component } from '@angular/core';
+import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
+import { AuthorPost } from '../../../../genese/genese-api/datatypes/author-post.datatype';
 
 
 @Component({
@@ -8,38 +8,19 @@ import { Genese, GeneseService } from 'genese-angular';
     templateUrl: './create.component.html',
     styleUrls: ['./create.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent {
 
-    // --------------------------------------------------
-    //                     PROPERTIES
-    // --------------------------------------------------
-
-    public book: Book = {};
-    public booksGenese: Genese<Book>;
-    public model = {
-        genese: {
-            path: '/books'
-        }
-    };
-
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
+    public authorPost: AuthorPost = {firstname: 'Amartya', lastname: 'Sen'};
 
     constructor(
-        private geneseService: GeneseService,
-    ) {
-        this.booksGenese = geneseService.getGeneseInstance(Book);
-    }
+        private geneseService: GeneseRequestService,
+    ) {}
 
-    ngOnInit(): void {
-    }
 
 
     create() {
-        console.log('%c create this.book ', 'font-weight: bold; color: fuchsia;', this.book);
-        this.booksGenese.create(this.book).subscribe((newBook: Book) => {
-            console.log('%c GeneseAbstract create newBook ', 'font-weight: bold; color: fuchsia;', newBook);
+        this.geneseService.postAuthors(this.authorPost).subscribe((response: any) => {
+            console.log('%c Genese create() response ', 'font-weight: bold; color: fuchsia;', response);
         });
     }
 
