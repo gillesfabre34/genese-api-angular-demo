@@ -1,21 +1,28 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges,
+    ViewChild
+} from '@angular/core';
 import { Genese, GeneseService, GetAllResponse } from 'genese-angular';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { Book } from '../models/book.model';
 import { tap } from 'rxjs/operators';
 import { homeEnv } from '../homeEnv';
+import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 
 
 @Component({
-    selector: 'app-data-list',
-    templateUrl: './data-list.component.html',
-    styleUrls: ['./data-list.component.scss']
+    selector: 'app-books-list',
+    templateUrl: './books-list.component.html',
+    styleUrls: ['./books-list.component.scss']
 })
-export class DataListComponent implements AfterViewInit, OnChanges, OnInit {
+export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
 
-    // --------------------------------------------------
-    //                     PROPERTIES
-    // --------------------------------------------------
 
     @Input() data: any[] = [];
     @Output() delete: EventEmitter<string> = new EventEmitter<any>();
@@ -30,9 +37,6 @@ export class DataListComponent implements AfterViewInit, OnChanges, OnInit {
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
 
     constructor(
         private geneseService: GeneseService,
