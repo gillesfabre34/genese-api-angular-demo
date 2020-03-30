@@ -8,28 +8,9 @@
     <p>In this example, the create() method adds a new book with the NestJS backend.</p>
     <p>Open your navigator console. In the tab "Network", you'll find the data received from POST request. In the tab "Console", you'll can compare these original data with the formatted objects sent as Observable by Genese. As you can see, Genese formatted the returned object with "Book" type.</p>
 
-    <div class="form-create">
-        <form (ngSubmit)="create()" #formCreate="ngForm">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="title" [(ngModel)]="bookPost.title" name="title" required #title="ngModel">
-                <div [hidden]="title.valid || title.pristine"
-                     class="alert alert-danger">
-                    Title is required
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" placeholder="Description" [(ngModel)]="bookPost.description" name="description">
-            </div>
-
-            <div class="form-group">
-                <label for="year">Year</label>
-                <input type="text" class="form-control" id="year" placeholder="Year" [(ngModel)]="bookPost.year" name="year">
-            </div>
-
-            <button type="submit" class="btn btn-success" [disabled]="!formCreate.form.valid">Create new book</button>
-        </form>
+    <mat-button-toggle (click)="openModal()">Add book</mat-button-toggle>
+    <div class="dataList">
+        <app-books-list [data]="data"></app-books-list>
     </div>
+
 </div>

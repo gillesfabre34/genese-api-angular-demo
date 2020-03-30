@@ -11,6 +11,7 @@ import { PutComponent } from './put/put.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { GeneseRequestService } from '../../../genese/genese-api/services/genese-request.service';
+import { ModalComponent } from '../core/components/modal/modal.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { GeneseRequestService } from '../../../genese/genese-api/services/genese
     ],
     entryComponents: [
         HomeComponent,
+        ModalComponent
     ],
     providers: [
         GeneseRequestService
