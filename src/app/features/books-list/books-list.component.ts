@@ -77,7 +77,7 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
     }
 
 
-    updateElement(id: string): void {
+    openElement(id: string): void {
         this.update.emit(id);
     }
 

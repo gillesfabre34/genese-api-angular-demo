@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Genese, GeneseService } from 'genese-angular';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
+import { GeneseRequestService } from '../../../../genese/genese-api/services/genese-request.service';
 
 
 @Component({
@@ -10,22 +10,10 @@ import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 })
 export class WelcomeComponent implements OnInit {
 
-    public booksGenese: Genese<Book>;
-    public model = {
-        genese: {
-            path: '/books'
-        }
-    };
-
-    // --------------------------------------------------
-    //                     CONSTRUCTOR
-    // --------------------------------------------------
 
     constructor(
-        private geneseService: GeneseService,
-    ) {
-        this.booksGenese = geneseService.getGeneseInstance(Book);
-    }
+        private geneseService: GeneseRequestService,
+    ) {}
 
     ngOnInit(): void {
         this.getOne('1');
@@ -36,8 +24,8 @@ export class WelcomeComponent implements OnInit {
      * @param id
      */
     getOne(id: string): void {
-        this.booksGenese.getOne(id).subscribe((book: Book) => {
-            console.log('%c GeneseAbstract getArrayOfStrings book ', 'font-weight: bold; color: green;', book);
+        this.geneseService.getBooksByBookId(id).subscribe((book: Book) => {
+            console.log('%c Get one book ', 'font-weight: bold; color: green;', book);
         });
     }
 }

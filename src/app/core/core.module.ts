@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -17,6 +19,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
     declarations: [
+        ModalComponent
     ],
     entryComponents: [],
     imports: [
@@ -31,7 +34,8 @@ export function createTranslateLoader(http: HttpClient) {
             }
         }),
 
-        AppRoutingModule
+        AppRoutingModule,
+        FormsModule
     ],
     exports: [
         CommonModule,
