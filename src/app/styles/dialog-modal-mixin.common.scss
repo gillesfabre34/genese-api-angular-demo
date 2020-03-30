@@ -1,0 +1,180 @@
+:host {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// ---------------
+// modal container
+// ---------------
+@mixin dialog-modal(
+    $dialog-modal-padding: 47px,
+    $dialog-title-margin-bottom: 10px,
+    $dialog-form-height: 56px,
+    $dialog-content-height: 157px,
+) {
+    position: relative;
+    width: calc(100% - #{$dialog-modal-padding});
+    height: 100%;
+    padding: 0 0 0 $dialog-modal-padding;
+    color: #647592;
+
+    .dialog-title {
+        color: #2e3237;
+        font-size: 24px;
+        margin-bottom: $dialog-title-margin-bottom;
+
+        .sub-title {
+            font-size: 13px;
+            color: #b3b4b7;
+            line-height: 1.31;
+        }
+
+        i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 20px;
+            color: #cad2e0;
+            cursor: pointer;
+        }
+    }
+
+    // ---------------
+    // modal form
+    // ---------------
+    .dialog-form {
+        position: relative;
+        width: 100%;
+        height: calc(100% - #{$dialog-form-height});
+
+        // ---------------
+        // modal inputs
+        // ---------------
+        .dialog-content {
+            position: relative;
+            width: calc(100% - 96px);
+            height: calc(100% - #{$dialog-content-height});
+            margin: 0;
+            padding: 0 96px 0 0;
+            display: flex;
+            flex-direction: column;
+
+            .form-field {
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+
+                label {
+                    color: #647592;
+                    font-size: 13px;
+                    margin-bottom: 8px;
+                }
+                input {
+                    width: calc(100% - 18px);
+
+                    &.disabled {
+                        background-color: #8080807a;
+                        color: white;
+                        box-shadow: unset;
+                        border: unset;
+                    }
+                }
+                textarea {
+                    border: 1px solid #9aa5b8;
+                    font-size: 14px;
+                    width: calc(100% - 18px);
+                    min-width: calc(100% - 18px);
+                    max-width: calc(100% - 18px);
+                    min-height: 48px;
+                    padding: 8px;
+                    color: #647592;
+
+                    &::placeholder {
+                        color: #9aa5b8;
+                    }
+                }
+            }
+        }
+
+        // --------------------
+        // modal action buttons
+        // --------------------
+        .dialog-actions {
+            position: relative;
+            width: 100%;
+            height: 56px;
+            margin: 47px 0 0 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 16px;
+                border: 1px solid #9aa5b8;
+                height: 100%;
+                width: 188px;
+                border-radius: 0;
+                box-shadow: unset;
+                color: #647592;
+                font-size: 14px;
+                font-weight: 900;
+
+                &.valid-button {
+                    color: white;
+                    background-color: #0085ad;
+               }
+
+                &[disabled] {
+                    background-color: #0085ad35;
+                    border: none;
+                }
+            }
+       }
+    }
+}
+
+@mixin form-fields() {
+
+    .form-fields {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: calc(100% - 16px);
+        align-items: flex-start;
+        align-content: flex-start;
+        display: inherit;
+
+        .form-field {
+            padding: 10px 24px 0 0;
+            min-width: 166px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: calc(33% - 24px);
+
+            input {
+                position: relative;
+                width: calc(100% - 30px);
+                text-transform: uppercase;
+
+                &::placeholder {
+                    font-size: 12px;
+                    text-transform: none;
+                }
+
+                &:disabled {
+                    color: #c1c7d3;
+                    background-color: #eff1f4;
+                    border-color: #e0e3e9;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

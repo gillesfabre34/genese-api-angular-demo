@@ -1,0 +1,50 @@
+@import "../../../styles/dialog-modal-mixin.common";
+
+.dialog-modal {
+    @include dialog-modal(8px, 10px, 46px, 100px);
+
+    .dialog-form {
+
+        .dialog-content {
+
+            @include form-fields();
+            .form-fields {
+
+                .form-field {
+
+                    input {
+                        padding: 8px 16px;
+                    }
+
+                    &.mpn-fields {
+                        width: calc(66% - 24px);
+                        max-height: calc(100% - 105px);
+                        overflow-y: auto;
+
+                        .mpn-list {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: calc(100% + 24px);
+                            overflow-y: auto;
+
+                            .mpn-selects {
+                                padding-bottom: 10px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                width: 50%;
+
+                                .icon-mpn {
+                                    padding-left: 3px;
+                                    margin-right: 6px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
