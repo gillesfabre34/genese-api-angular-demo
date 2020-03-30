@@ -1,4 +1,8 @@
 export class Author {
-    firstName: string;
-    lastName: string;
+    firstname?: string;
+    lastname?: string;
+    address?: {
+        town?: string,
+        zipcode?: string
+    };
 }

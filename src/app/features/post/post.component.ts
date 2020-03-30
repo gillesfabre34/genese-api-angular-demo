@@ -53,11 +53,11 @@ export class PostComponent implements OnInit {
         dialogRef.afterClosed().subscribe(
             result => {
                 console.log('%c Genese post() afterClosed result ', 'font-weight: bold; color: fuchsia;', result);
-                if (result) {
-                    this.geneseService.postBooks(this.bookPost).subscribe((response: any) => {
-                        console.log('%c Genese post() response ', 'font-weight: bold; color: fuchsia;', response);
-                    });
-                }
+                // if (result) {
+                //     this.geneseService.postBooks(this.bookPost).subscribe((response: any) => {
+                //         console.log('%c Genese post() response ', 'font-weight: bold; color: fuchsia;', response);
+                //     });
+                // }
                 this.getData();
             },
             err => console.error(err)

@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 import { BookService } from '../services/book.service';
-import { CreateBookDTO } from '../dto/create-book.dto';
 import { Book } from '../models/book.model';
 import { GetAllResponse } from '../../generic/services/generic-data.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Category } from '../enums/category';
+import { BookPost } from '../../../../genese/genese-api/datatypes/book-post.datatype';
 
 @ApiTags('Books')
 @Controller('books')
@@ -32,14 +32,15 @@ export class BookController {
         } else {
             books = await this.booksService.getAll(params);
         }
+        console.log('getBooks books', books);
         return books;
     }
 
     @Post()
     @ApiOperation({ summary: 'Create a book' })
     @ApiQuery({name: 'category', enum: Category})
-    async addBook(@Body() createBookDTO: CreateBookDTO) {
-        const book = await this.booksService.addBook(createBookDTO);
+    async addBook(@Body() bookPost: BookPost) {
+        const book = await this.booksService.addBook(bookPost);
         return book;
     }
 

@@ -14,6 +14,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { tap } from 'rxjs/operators';
 import { homeEnv } from '../homeEnv';
 import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
+import { fullName } from '../../core/services/tools.service';
 
 
 @Component({
@@ -44,6 +45,8 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
         this.booksGenese = geneseService.getGeneseInstance(Book);
     }
 
+
+
     /**
      * Component initialization
      */
@@ -52,6 +55,7 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
         this.paginator.pageSize = this.pageSize;
         this.getAll();
     }
+
 
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -72,9 +76,11 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
     }
 
 
+
     deleteElement(id: string): void {
         this.delete.emit(id);
     }
+
 
 
     openElement(id: string): void {
@@ -88,10 +94,17 @@ export class BooksListComponent implements AfterViewInit, OnChanges, OnInit {
      */
     getAll(): void {
         this.displayedColumns = ['id', 'author', 'title', 'description', 'actions'];
+        console.log('%c this.data', 'font-weight: bold; color: green;', this.data);
         if (Array.isArray(this.data)) {
+            const arrayData = this.data.map(e => {
+                e.author = fullName(e.author.firstname, e.author.lastname);
+                return e;
+            });
             this.displayMatTableDataSource({results: this.data, totalResults: this.data.length});
         }
     }
+
+
 
     /**
      * Get all the app with pagination

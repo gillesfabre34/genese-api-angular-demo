@@ -1,5 +1,5 @@
 import { ArrayResponse, GeneseModelEnvironment } from 'genese-angular';
-import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
+import { Book } from '../../../genese/genese-api/datatypes/book.datatype';
 
 
 export class ArrayOfArraysOfBooks implements ArrayResponse {

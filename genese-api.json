@@ -153,15 +153,15 @@
                                     "authors": {
                                         "value": [
                                             {
-                                                "firstName": "some text",
-                                                "lastName": "some text",
+                                                "firstname": "some text",
+                                                "lastname": "some text",
                                                 "address": {
 
                                                 }
                                             },
                                             {
-                                                "firstName": "some text",
-                                                "lastName": "some text",
+                                                "firstname": "some text",
+                                                "lastname": "some text",
                                                 "address": {
 
                                                 }
@@ -204,8 +204,8 @@
                                 "examples": {
                                     "New author": {
                                         "value": {
-                                            "firstName": "some text",
-                                            "lastName": "some text",
+                                            "firstname": "some text",
+                                            "lastname": "some text",
                                             "address": {
 
                                             }
@@ -330,11 +330,11 @@
                 "description": "",
                 "type": "object",
                 "properties": {
-                    "firstName": {
+                    "firstname": {
                         "description": "",
                         "type": "string"
                     },
-                    "lastName": {
+                    "lastname": {
                         "description": "",
                         "type": "string"
                     },
@@ -343,8 +343,8 @@
                     }
                 },
                 "example": {
-                    "firstName": "some text",
-                    "lastName": "some text",
+                    "firstname": "some text",
+                    "lastname": "some text",
                     "address": {
                         "town": "Montpellier",
                         "zipCode": "34000"

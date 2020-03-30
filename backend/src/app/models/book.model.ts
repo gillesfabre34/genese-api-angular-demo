@@ -1,8 +1,10 @@
+import { Author } from './author.model';
+
 export class Book {
 
     public id: number;
-    public author?: string;
-    public bookTitle?: string;
+    public author?: Author;
+    public title?: string;
     public booleans?: boolean[];
     public categories?: string[];
     public codeArrayOfArraysOfStrings?: string[][];
@@ -45,12 +47,4 @@ export class Book {
 
     constructor() {}
 
-}
-
-
-export class LightBookEditor {
-    name ?= 'editor.name';
-    city ?= 'editor.place.city';
-    country ?= 'editor.place.country';
-    title ?= 'title';
 }
