@@ -3,8 +3,8 @@ import chalk from 'chalk';
 import { BookService } from './services/book.service';
 import { GetAllResponse } from '../generic/services/generic-data.service';
 import { Book } from './models/book.model';
-import { CreateBookDTO } from './dto/create-book.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { BookPost } from '../../../genese/genese-api/datatypes/book-post.datatype';
 
 @ApiTags('custom path')
 @Controller('custom-path')
@@ -29,8 +29,8 @@ export class BookCustomController {
     }
 
     @Post()
-    async addBook(@Body() createBookDTO: CreateBookDTO) {
-        const book = await this.booksService.addBook(createBookDTO);
+    async addBook(@Body() bookPost: BookPost) {
+        const book = await this.booksService.addBook(bookPost);
         return book;
     }
 

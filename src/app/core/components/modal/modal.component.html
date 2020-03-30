@@ -15,7 +15,6 @@
                            id="title"
                            placeholder="Title"
                            [(ngModel)]="book.title"
-                           [disabled]="mode === 'edition'"
                            required>
                 </div>
 
@@ -26,7 +25,6 @@
                            id="description"
                            placeholder="Description"
                            [(ngModel)]="book.description"
-                           [disabled]="mode === 'edition'"
                            required>
                 </div>
 
@@ -37,7 +35,6 @@
                            id="year"
                            placeholder="Year"
                            [(ngModel)]="book.year"
-                           [disabled]="mode === 'edition'"
                            required>
                 </div>
             </div>

@@ -18,6 +18,8 @@ export class ModalComponent implements OnInit {
     constructor(@Inject(MAT_DIALOG_DATA) data: { book: Book, mode: string },
                 private dialogRef: MatDialogRef<ModalComponent>,
                 private geneseService: GeneseRequestService) {
+        this.book = data ? data.book : this.book;
+        this.mode = data ? data.mode : 'creation';
     }
 
 
@@ -29,20 +31,8 @@ export class ModalComponent implements OnInit {
         const overlay = document.createElement('div');
         overlay.id = 'overlay';
         document.body.prepend(overlay);
-        this.getBook();
     }
 
-
-    /**
-     * Load ata and designation list
-     */
-    getBook(id = '') {
-        // if (this.mode === 'duplicate') {
-        this.geneseService.getBooksByBookId(id).subscribe((book) => {
-            console.log('%c book', 'font-weight: bold; color: blue;', book);
-        });
-        // }
-    }
 
 
     /**

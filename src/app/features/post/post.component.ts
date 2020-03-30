@@ -13,7 +13,6 @@ import { Book } from '../../../../genese/genese-api/datatypes/book.datatype';
 })
 export class PostComponent implements OnInit {
 
-    public bookPost: BookPost = {title: 'Les inégalités', description: 'Description des inégalités', year: '1998'};
     public data: any[] = [];
 
     constructor(
@@ -47,17 +46,11 @@ export class PostComponent implements OnInit {
             width: '600px',
             height: '50%',
             hasBackdrop: false,
-            panelClass: 'detail-part-modal'
         });
 
         dialogRef.afterClosed().subscribe(
             result => {
                 console.log('%c Genese post() afterClosed result ', 'font-weight: bold; color: fuchsia;', result);
-                // if (result) {
-                //     this.geneseService.postBooks(this.bookPost).subscribe((response: any) => {
-                //         console.log('%c Genese post() response ', 'font-weight: bold; color: fuchsia;', response);
-                //     });
-                // }
                 this.getData();
             },
             err => console.error(err)
