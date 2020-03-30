@@ -39,17 +39,15 @@ export class PostComponent implements OnInit {
 
 
 
-    create() {
-        const data = {
-            book: {},
-            mode: 'creation'
-        };
+    /**
+     * Open create part modal
+     */
+    openModal(): void {
         const dialogRef = this.dialog.open(ModalComponent, {
-            width: '400px',
-            height: '40%',
+            width: '600px',
+            height: '50%',
             hasBackdrop: false,
-            panelClass: 'modal',
-            data
+            panelClass: 'detail-part-modal'
         });
 
         dialogRef.afterClosed().subscribe(
@@ -60,27 +58,6 @@ export class PostComponent implements OnInit {
                         console.log('%c Genese post() response ', 'font-weight: bold; color: fuchsia;', response);
                     });
                 }
-            },
-            err => console.error(err)
-        );
-    }
-
-
-
-    /**
-     * Open create part modal
-     */
-    openModal(): void {
-        const dialogRef = this.dialog.open(ModalComponent, {
-            width: '800px',
-            height: '80%',
-            hasBackdrop: false,
-            panelClass: 'detail-part-modal'
-        });
-
-        dialogRef.afterClosed().subscribe(
-            result => {
-                console.log('%c openModal result', 'font-weight: bold; color: blue;', result);
                 this.getData();
             },
             err => console.error(err)
